@@ -1,0 +1,17 @@
+{
+  "pages": {
+    "key": "pages",
+    "router.Home": "首页",
+    "home.Hot": "首页"
+  },
+  "zh-CN": {
+    "key": "zh-CN",
+    "router.Home": "首页",
+    "home.Hot": "热门榜"
+  },
+  "en-US": {
+    "key": "en-US",
+    "router.Home": "Home",
+    "home.Hot": "Hot"
+  }
+}
