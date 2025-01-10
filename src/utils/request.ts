@@ -1,6 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import Cookies from 'js-cookie'
-import { ElMessage, ElMessageBox } from 'element-plus'
 import router from '@/router'
 
 class HttpRequest {
@@ -11,7 +10,7 @@ class HttpRequest {
   getInsideConfig() {
     const config = {
       baseURL: this.baseUrl, // 所有的请求地址前缀部分(没有后端请求不用写)
-      timeout: 80000, // 请求超时时间(毫秒)
+      timeout: 80000 // 请求超时时间(毫秒)
       // withCredentials: true,// 跨域请求时发送cookies
       // headers: {
       // 设置后端需要的传参类型
@@ -49,7 +48,7 @@ class HttpRequest {
           ElMessageBox.confirm('登录失效，请重新登入', '提示', {
             confirmButtonText: '重新登录',
             cancelButtonText: '取消',
-            type: 'warning',
+            type: 'warning'
           })
             .then(() => {
               location.reload()
@@ -64,7 +63,7 @@ class HttpRequest {
           ElMessage({
             message: data.message || 'Error',
             type: 'error',
-            duration: 3 * 1000,
+            duration: 3 * 1000
           })
           return
         }
@@ -82,7 +81,7 @@ class HttpRequest {
           ElMessage({
             message: error.msg,
             type: 'error',
-            duration: 3 * 1000,
+            duration: 3 * 1000
           })
         }
         return Promise.reject(error)
