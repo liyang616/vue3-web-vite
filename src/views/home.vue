@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>vite-web</h1>
-    <Language />
+    <Language @change="languageChange" />
     <el-date-picker v-model="dateTime" type="datetime" placeholder="请选择" />
     <h1>{{ $t('home.Hot') }}</h1>
     <img alt="Vue logo" src="../assets/vue.svg" />
@@ -22,12 +22,17 @@
 </template>
 
 <script setup lang="ts">
+import { languageKeys } from '@/i18n/language'
 import { Edit } from '@element-plus/icons-vue'
 import { ref, getCurrentInstance } from 'vue'
 const { proxy }: any = getCurrentInstance()
 defineOptions({
   name: 'home'
 })
+
+const languageChange = (val: string) => {
+  console.log(val)
+}
 
 const dateTime = ref<string>('')
 proxy.$api.getData().then((res: any) => {

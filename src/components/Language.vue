@@ -28,12 +28,15 @@ localeText.value = languageList[localStorage.getItem('language') || 'en-US'].nam
 locale.value = languageList[localStorage.getItem('language') || 'en-US'].value
 proxy.$language.value = languageList[localStorage.getItem('language') || 'en-US'].value
 
+const emit = defineEmits(['change'])
 const languageClick = (item: any) => {
+  if (locale.value == languageList[item.value].value) return
   localeText.value = item.name
   locale.value = languageList[item.value].value
   localStorage.setItem('language', locale.value)
   document.title = $t(route.meta.i18nKey as string)
   proxy.$language.value = locale.value
+  emit('change', locale.value)
 }
 </script>
 
