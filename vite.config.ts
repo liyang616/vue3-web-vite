@@ -13,6 +13,7 @@ updateLanguage('viteConfig/assets/language.xlsx', 'src/i18n/language/data.json')
 
 export default ({ mode }: any) => {
   return defineConfig({
+    base: loadEnv(mode, process.cwd()).VITE_PUBLIC_PATH,
     plugins: [
       vue(),
       AutoImport({

@@ -31,6 +31,25 @@ class HttpRequest {
         if (token) {
           config.headers['webtoken'] = 'Bearer ' + token
         }
+
+        // 上传接口使用multipart/form-data
+        // if (config.url == '/storage/img/comUpload' || config.url == '/storage/upload') {
+        //   config.headers['Content-Type'] = 'multipart/form-data'
+        // }
+
+        // get请求带个hash值, 解决cdn缓存问题
+        // if (config.method == 'get') config.url = config.url + '?t=' + new Date().getTime()
+
+        // 去除空值
+        // let keyName = config.method == 'get' || config.method == 'delete' ? 'params' : 'data' // 判断是什么类型的接口取不同字段的数据
+        // let old_request_data = config[keyName]
+        // let requestData = {}
+        // if (old_request_data)
+        //   requestData = Object.keys(old_request_data)
+        //     .filter((key) => old_request_data[key] !== '' && old_request_data[key] !== null && old_request_data[key] !== undefined)
+        //     .reduce((acc, key) => ({ ...acc, [key]: old_request_data[key] }), {})
+        // config[keyName] = requestData
+
         return config
       },
       (error: any) => {

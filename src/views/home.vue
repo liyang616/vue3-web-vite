@@ -2,10 +2,9 @@
   <div class="home">
     <h1>vite-web</h1>
     <Language />
-    <el-date-picker type="datetime" placeholder="请选择" />
+    <el-date-picker v-model="dateTime" type="datetime" placeholder="请选择" />
     <h1>{{ $t('home.Hot') }}</h1>
     <img alt="Vue logo" src="../assets/vue.svg" />
-    <el-button type="primary">{{ weather }}</el-button>
     <el-button type="primary" :icon="Edit" />
 
     <p>---pinia简易示例start---</p>
@@ -30,10 +29,9 @@ defineOptions({
   name: 'home'
 })
 
-let weather = ref<string>('')
+const dateTime = ref<string>('')
 proxy.$api.getData().then((res: any) => {
   if (res.status) return
-  weather.value = res.data.weather
 })
 </script>
 

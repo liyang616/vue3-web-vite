@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import NProgress from '@/plugins/nprogress'
 import i18n from '@/i18n/index'
 
@@ -10,8 +10,8 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       title: '首页',
       i18nKey: 'router.Home'
-    },
-  },
+    }
+  }
   // {
   //   path: '/about',
   //   name: 'about',
@@ -23,8 +23,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
+  history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
+  routes
 })
 
 router.beforeEach((to, from, next) => {
